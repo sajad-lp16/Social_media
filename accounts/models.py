@@ -34,6 +34,10 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     is_verified = models.BooleanField(_('is verified'), default=False)
     is_private = models.BooleanField(_('is private'), default=False)
 
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(User, self).save(*args, **kwargs)
+
     objects = UserManager()
 
     EMAIL_FIELD = 'email'
