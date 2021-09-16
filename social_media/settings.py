@@ -30,6 +30,9 @@ INSTALLED_APPS = [
 
     # Project Applications
     'accounts.apps.AccountsConfig',
+    'activity.apps.ActivityConfig',
+    'social.apps.SocialConfig',
+    'relations.apps.RelationsConfig',
 
     # Third party applications
     'oauth2_provider',
