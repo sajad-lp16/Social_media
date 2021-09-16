@@ -13,6 +13,11 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+# Cors Control
+
+CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -25,11 +30,17 @@ INSTALLED_APPS = [
 
     # Project Applications
     'accounts.apps.AccountsConfig',
+
+    # Third party applications
+    'oauth2_provider',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -113,3 +124,24 @@ MEDIA_ROOT = 'media_cdn'
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = config('DEFAULT_AUTO_FIELD')
+
+# Rest framework configurations
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
+
+# Oauth
+
+OAUTH2_PROVIDER = {
+    'SCOPES':
+        {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
+
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore',
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 7200
+}
