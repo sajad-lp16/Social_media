@@ -1,12 +1,12 @@
-from django.contrib.auth.base_user import AbstractBaseUser
-from django.contrib.auth.validators import UnicodeUsernameValidator
-from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser, PermissionsMixin, UserManager
+from django.contrib.auth.validators import UnicodeUsernameValidator
+from django.contrib.auth.base_user import AbstractBaseUser
+from django.utils.translation import ugettext_lazy as _
 from django.db import models
 
 from utils.models import BaseModel
-from .utils import file_handlers
 from .utils import validators
+from .utils import functions
 
 
 class User(AbstractBaseUser, PermissionsMixin, BaseModel):
@@ -17,7 +17,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
                                 error_messages={'unique': _("A user with that username already exists."), }, )
     first_name = models.CharField(_('first name'), max_length=150, blank=True)
     last_name = models.CharField(_('last name'), max_length=150, blank=True)
-    avatar = models.ImageField(_('avatar'), upload_to=file_handlers.rename_file, blank=True, null=True,
+    avatar = models.ImageField(_('avatar'), upload_to=functions.rename_file, blank=True, null=True,
                                default='profiles/default_profile.png')
     bio = models.TextField(_('bio'), blank=True)
     phone_number = models.PositiveBigIntegerField(_('phone_number'), unique=True,
