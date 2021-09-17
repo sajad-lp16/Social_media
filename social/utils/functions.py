@@ -1,14 +1,10 @@
-import os
 from uuid import uuid4
+
+from utils.functions import get_format
 
 
 def post_slug(instance):
     return f'{instance.user}-post-{uuid4()}'
-
-
-def get_format(filename):
-    _, ext = os.path.splitext(filename)
-    return ext
 
 
 def rename_file(instance, file_name):
