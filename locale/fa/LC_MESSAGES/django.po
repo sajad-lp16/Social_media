@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-17 22:19+0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: accounts/api/views.py:41 accounts/api/views.py:44 accounts/api/views.py:51
+#: accounts/api/views.py:53 accounts/api/views.py:56 activity/models.py:66
+msgid "message"
+msgstr "پیام"
+
+#: accounts/api/views.py:41
+msgid "Activation Code Was Sent To Your Phone"
+msgstr "کد فعالسازی برای تلفن همراه شما ارسال شد"
+
+#: accounts/api/views.py:44
+msgid "Activation Code Was Sent To Your Email"
+msgstr "کد فعالسازی برای ایمیل شما ارسال شد"
+
+#: accounts/api/views.py:51
+msgid "The Code Is Invalid Or Expired"
+msgstr "کد فعاسازی منقضی یا نامعتبر است"
+
+#: accounts/api/views.py:53
+msgid "The Code Is Invalid !"
+msgstr "کد فعالسازی نامعتبر است"
+
+#: accounts/api/views.py:56
+msgid "The Account Has Been Successfully Activated !"
+msgstr "حساب کاربری با موفقیت فعال شد"
+
+#: accounts/apps.py:9
+msgid "account"
+msgstr "حساب کاربری"
+
+#: accounts/apps.py:10
+msgid "accounts"
+msgstr "حساب های کاربری"
+
+#: accounts/models.py:15
+msgid "username"
+msgstr "نام کاربری"
+
+#: accounts/models.py:16
+msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
+msgstr "حداکثر 150 کاراکتر شامل حروف و اعداد و کاراکتر های @/./+/-/_"
+
+#: accounts/models.py:17
+msgid "A user with that username already exists."
+msgstr "این نام کاربری قبلا توسط کاربری استفاده شده است"
+
+#: accounts/models.py:18
+msgid "first name"
+msgstr "نام"
+
+#: accounts/models.py:19
+msgid "last name"
+msgstr "نام خانوادگی"
+
+#: accounts/models.py:20
+msgid "avatar"
+msgstr "تصویر"
+
+#: accounts/models.py:22
+msgid "bio"
+msgstr "درباره"
+
+#: accounts/models.py:23
+msgid "phone_number"
+msgstr "شماره تلفن"
+
+#: accounts/models.py:25
+msgid "A user with that phone number already exists."
+msgstr "این شماره تماس قبلا ثبت شده است"
+
+#: accounts/models.py:26
+msgid "email address"
+msgstr "آدرس ایمیل"
+
+#: accounts/models.py:27
+msgid "A user with that email already exists."
+msgstr "این ایمیل قبلا ثبت شده است"
+
+#: accounts/models.py:28
+msgid "staff status"
+msgstr "کاربر ارشد"
+
+#: accounts/models.py:29
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: accounts/models.py:30
+msgid "active"
+msgstr "فعال"
+
+#: accounts/models.py:31
+msgid ""
+"Designates whether this user should be treated as active. Unselect this "
+"instead of deleting accounts."
+msgstr ""
+
+#: accounts/models.py:34
+msgid "is verified"
+msgstr "فعال شده"
+
+#: accounts/models.py:35
+msgid "is private"
+msgstr "مخفی"
+
+#: accounts/models.py:48 activity/models.py:14 activity/models.py:35
+#: chat/models.py:13 chat/models.py:14 chat/models.py:33 relations/models.py:12
+#: relations/models.py:13 social/models.py:13 social/models.py:32
+msgid "user"
+msgstr "کاربر"
+
+#: accounts/models.py:49
+msgid "users"
+msgstr "کاربران"
+
+#: activity/apps.py:9
+msgid "activity"
+msgstr "فعالیت"
+
+#: activity/apps.py:10
+msgid "activities"
+msgstr "فعالیت ها"
+
+#: activity/models.py:15 chat/models.py:38
+msgid "content"
+msgstr "محتوا"
+
+#: activity/models.py:16 chat/models.py:15 social/models.py:15
+msgid "slug"
+msgstr ""
+
+#: activity/models.py:17 activity/models.py:54 social/models.py:33
+msgid "post"
+msgstr "پست"
+
+#: activity/models.py:18
+msgid "reply"
+msgstr "پاسخ به"
+
+#: activity/models.py:25
+msgid "Comment"
+msgstr "نظر"
+
+#: activity/models.py:26
+msgid "Comments"
+msgstr "نظرات"
+
+#: activity/models.py:42
+msgid "comment"
+msgstr "نظر"
+
+#: activity/models.py:49 activity/models.py:50
+msgid "Like_comment"
+msgstr "لایک های کامنت"
+
+#: activity/models.py:61 activity/models.py:62
+msgid "Like_posts"
+msgstr "لایک های پست ها"
+
+#: activity/models.py:73
+msgid "Like_message"
+msgstr "لایک های پیام"
+
+#: activity/models.py:74
+msgid "Like_messages"
+msgstr "لایک های پیام ها"
+
+#: chat/apps.py:9
+msgid "chat"
+msgstr "گفتگو"
+
+#: chat/apps.py:10
+msgid "chats"
+msgstr "گفتگو ها"
+
+#: chat/models.py:22
+msgid "Chat room"
+msgstr "صفحه گفتگو"
+
+#: chat/models.py:23
+msgid "Chat rooms"
+msgstr "صفحات  گفتگو ها"
+
+#: chat/models.py:34 social/models.py:34
+msgid "media"
+msgstr "رسانه"
+
+#: chat/models.py:40
+msgid "chat room"
+msgstr "صفحه گفتگو"
+
+#: chat/models.py:47
+msgid "Message"
+msgstr "پیام"
+
+#: chat/models.py:48
+msgid "Messages"
+msgstr "پیام ها"
+
+#: relations/apps.py:9
+msgid "relation"
+msgstr "ارتباط"
+
+#: relations/apps.py:10
+msgid "relations"
+msgstr "ارتباطات"
+
+#: relations/models.py:17
+msgid "Relation"
+msgstr "ارتباط"
+
+#: relations/models.py:18
+msgid "Relations"
+msgstr "ارتباطات"
+
+#: social/apps.py:9 social/apps.py:10
+msgid "social"
+msgstr "عمومی"
+
+#: social/models.py:14
+msgid "caption"
+msgstr "متن"
+
+#: social/models.py:22
+msgid "Post"
+msgstr "پست"
+
+#: social/models.py:23
+msgid "Posts"
+msgstr "پست ها"
+
+#: social/models.py:43 social/models.py:44
+msgid "Media"
+msgstr "رسانه"
+
+#: utils/models.py:6
+msgid "create time"
+msgstr "تاریخ ساخت"
+
+#: utils/models.py:7
+msgid "update time"
+msgstr "تاریخ بروز رسانی"
