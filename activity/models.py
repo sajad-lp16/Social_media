@@ -5,6 +5,7 @@ from django.db import models
 from utils.models import BaseModel
 from social.models import Post
 from .utils import functions
+from chat.models import Message
 
 User = get_user_model()
 
@@ -59,3 +60,15 @@ class LikePost(Like, BaseModel):
         db_table = 'Like_posts'
         verbose_name = _('Like_posts')
         verbose_name_plural = _('Like_posts')
+
+
+class LikeMessage(Like, BaseModel):
+    message = models.ForeignKey(Message, on_delete=models.CASCADE, related_name='likes', verbose_name=_('message'))
+
+    def __str__(self):
+        return self.user.__str__()
+
+    class Meta:
+        db_table = 'Like_messages'
+        verbose_name = _('Like_message')
+        verbose_name_plural = _('Like_messages')
