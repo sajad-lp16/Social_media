@@ -9,4 +9,6 @@ urlpatterns = [
 
     path('retrieve-update-destroy/<str:username>/',
          views.UserRetrieveUpdateDestroy.as_view(), name='retrieve_update_destroy'),
+
+    path('verify-account/<str:method>/', views.VerifyAccount.as_view(), name='verify_account'),
 ]
