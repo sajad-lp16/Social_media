@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "87025770-1c77-4724-a40c-c540472775bb",
+		"name": "activating_account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/accounts/api/verify-account/sms/",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/api/verify-account/sms/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"api",
+						"verify-account",
+						"sms",
+						""
+					]
+				}
+			},
+			"response": [{
+    "message": "Activation Code Was Sent To Your Phone"
+}]
+		},
+		{
+			"name": "http://127.0.0.1:8000/accounts/api/verify-account/sms/",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"code\":\"84520\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/api/verify-account/sms/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"api",
+						"verify-account",
+						"sms",
+						""
+					]
+				}
+			},
+			"response": [{
+    "message": "The Account Has Been Successfully Activated !"
+}]
+		}
+	]
+}

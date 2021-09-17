@@ -38,19 +38,19 @@ class VerifyAccount(generics.GenericAPIView):
         if method == 'sms':
             send_verification_sms.delay(code)
             cache.set(key_code, code, timeout=90)
-            return Response({_('message'): _('Activation Code Was Sent To Your Phone')}, status=status.HTTP_200_OK)
+            return Response({'message': 'Activation Code Was Sent To Your Phone'}, status=status.HTTP_200_OK)
         send_verification_email.delay(request.user.email, code)
         cache.set(key_code, code, timeout=90)
-        return Response({_('message'): _('Activation Code Was Sent To Your Email')}, status=status.HTTP_200_OK)
+        return Response({'message': 'Activation Code Was Sent To Your Email'}, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
         user = request.user
         submit_code = request.data.get('code')
         auth_code = cache.get(f'{user.username}')
         if auth_code is None:
-            return Response({_('message'): _('The Code Is Invalid Or Expired')}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'The Code Is Invalid Or Expired'}, status=status.HTTP_404_NOT_FOUND)
         if auth_code != submit_code:
-            return Response({_('message'): _('The Code Is Invalid !')}, status=status.HTTP_403_FORBIDDEN)
+            return Response({'message': 'The Code Is Invalid !'}, status=status.HTTP_403_FORBIDDEN)
         user.is_verified = True
         user.save()
-        return Response({_('message'): _('The Account Has Been Successfully Activated !')}, status=status.HTTP_200_OK)
+        return Response({'message': 'The Account Has Been Successfully Activated !'}, status=status.HTTP_200_OK)
