@@ -14,12 +14,10 @@ DEBUG = config('DEBUG', cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 # Cors Control
-
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
-# CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
+CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,6 +31,7 @@ INSTALLED_APPS = [
     'activity.apps.ActivityConfig',
     'social.apps.SocialConfig',
     'relations.apps.RelationsConfig',
+    'chat.apps.ChatConfig',
 
     # Third party applications
     'oauth2_provider',
@@ -75,7 +74,6 @@ TEMPLATES = [
 WSGI_APPLICATION = config('WSGI_APPLICATION')
 
 # Database
-
 DATABASES = {
     'default': {
         'ENGINE': config('ENGINE'),
@@ -88,7 +86,6 @@ DATABASES = {
 }
 
 # Password validation
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -105,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Asia/Tehran'
@@ -117,20 +113,21 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-
 STATIC_URL = '/static/'
 
 # Media files configurations
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media_cdn'
 
 # Default primary key field type
-
 DEFAULT_AUTO_FIELD = config('DEFAULT_AUTO_FIELD')
 
-# Rest framework configurations
+# Locale and translations
+LOCALE_PATHS = [
+    BASE_DIR / 'locale',
+]
 
+# Rest framework configuration
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
@@ -141,11 +138,34 @@ REST_FRAMEWORK = {
 }
 
 # Oauth
-
 OAUTH2_PROVIDER = {
     'SCOPES':
         {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
 
     'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore',
-    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600*24*30
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600 * 24 * 30
 }
+
+# Cache Configurations
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
+# Email Configuration
+EMAIL_BACKEND = config('EMAIL_BACKEND')
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+# Celery Configs
+CELERY_BROKER_URL = config('CELERY_BROKER')
+CELERY_RESULT_BACKEND = config('CELERY_RESULT')
+CELERY_ACCEPT_CONTENT = config('CELERY_ACCEPT_CONTENT', cast=Csv())
+CELERY_TASK_SERIALIZER = config('CELERY_TASK_SERIALIZER')
+CELERY_TIMEZONE = config('CELERY_TIMEZONE')
+CELERY_ENABLE_UTC = config('CELERY_ENABLE_UTC', cast=bool)
