@@ -16,7 +16,7 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Cors Control
 
 CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL', cast=bool)
-CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
+# CORS_ORIGIN_WHITELIST = config('CORS_ORIGIN_WHITELIST', cast=Csv())
 
 # Application definition
 
@@ -147,5 +147,5 @@ OAUTH2_PROVIDER = {
         {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
 
     'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore',
-    'ACCESS_TOKEN_EXPIRE_SECONDS': 7200
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600*24*30
 }
