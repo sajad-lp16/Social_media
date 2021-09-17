@@ -1,9 +1,4 @@
-import os
-
-
-def get_format(filename):
-    _, ext = os.path.splitext(filename)
-    return ext
+from utils.functions import get_format
 
 
 def rename_file(instance, file_name):
