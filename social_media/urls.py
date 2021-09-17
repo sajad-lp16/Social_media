@@ -4,8 +4,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('oauth/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:
