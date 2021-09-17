@@ -48,3 +48,9 @@ class UserSerializer(serializers.ModelSerializer):
         }
         requests.post('http://localhost:8000/oauth/token/', data=json.dumps(data))
         return instance
+
+    def update(self, instance, validated_data):
+        password = validated_data.get('password')
+        if password is not None:
+            validated_data['password'] = make_password(password)
+        return super().update(instance, validated_data)
