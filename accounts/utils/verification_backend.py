@@ -2,11 +2,11 @@ import random
 import requests
 
 from django.core.mail import send_mail
+from django.conf import settings
 
 from celery.task import task
 
-TOKEN = '5A4A484458746E6777506473307136534D6F4C7851434C5577377637364332453056474C2B6F6C697167773D'
-URL = 'https://api.kavenegar.com/v1/{token}/sms/send.json'.format(token=TOKEN)
+URL = 'https://api.kavenegar.com/v1/{token}/sms/send.json'.format(token=settings.SMS_TOKEN)
 
 
 def generate_code():
