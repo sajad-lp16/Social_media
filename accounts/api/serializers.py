@@ -1,14 +1,8 @@
-import json
-import requests
-
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 from rest_framework import serializers
 
 User = get_user_model()
-
-CLIENT_ID = '03pUssR1v7l5BdTcDQkgmN9jVs70nMU5AO7c2AGE'
-GRANT_TYPE = 'password'
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -41,13 +35,6 @@ class UserSerializer(serializers.ModelSerializer):
         password = validated_data.get('password')
         validated_data['password'] = make_password(password)
         instance = super().create(validated_data)
-        data = {
-            'username': validated_data['username'],
-            'password': password,
-            'client_id': CLIENT_ID,
-            'grant_type': GRANT_TYPE
-        }
-        requests.post('http://localhost:8000/oauth/token/', data=json.dumps(data))
         return instance
 
     def update(self, instance, validated_data):
@@ -60,7 +47,7 @@ class UserSerializer(serializers.ModelSerializer):
         request = self.context['request']
         data = super().to_representation(instance)
         if request.user == instance or request.user.is_superuser:
-            data['token'] = instance.oauth2_provider_accesstoken.get_queryset()[0].token
+            data['token'] = request.user.oauth2_provider_accesstoken.get_queryset().last().token
         else:
             data.pop('phone_number')
             data.pop('email')
