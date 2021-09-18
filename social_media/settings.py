@@ -127,6 +127,11 @@ LOCALE_PATHS = [
     BASE_DIR / 'locale',
 ]
 
+# Authentication Backends
+AUTHENTICATION_BACKENDS = [
+    'accounts.utils.authentication_backend.AuthenticationBackend',
+]
+
 # Rest framework configuration
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -138,12 +143,16 @@ REST_FRAMEWORK = {
 }
 
 # Oauth
+
+CLIENT_ID = config('CLIENT_ID')
+
 OAUTH2_PROVIDER = {
     'SCOPES':
         {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'},
 
-    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore',
-    'ACCESS_TOKEN_EXPIRE_SECONDS': 3600 * 24 * 30
+    'OAUTH2_BACKEND_CLASS': 'accounts.utils.authentication_backend.UserOAuthLibCore',
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 60 * 60 * 24 * 30,
+    'TOKEN_ALLOW_REFRESH': True,
 }
 
 # Cache Configurations
@@ -169,3 +178,6 @@ CELERY_ACCEPT_CONTENT = config('CELERY_ACCEPT_CONTENT', cast=Csv())
 CELERY_TASK_SERIALIZER = config('CELERY_TASK_SERIALIZER')
 CELERY_TIMEZONE = config('CELERY_TIMEZONE')
 CELERY_ENABLE_UTC = config('CELERY_ENABLE_UTC', cast=bool)
+
+# SMS configs
+SMS_TOKEN = config('SMS_TOKEN')
