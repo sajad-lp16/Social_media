@@ -18,7 +18,7 @@ class Conversation(BaseModel):
         return f'{self.start_user.__str__()} and {self.end_user.__str__()}'
 
     class Meta:
-        db_table = 'ChatRoom'
+        db_table = 'Conversation'
         verbose_name = _('Conversation')
         verbose_name_plural = _('Conversations')
         unique_together = [('start_user', 'end_user')]
