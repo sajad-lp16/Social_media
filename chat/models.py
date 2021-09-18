@@ -9,7 +9,7 @@ from .utils import functions
 User = get_user_model()
 
 
-class ChatRoom(BaseModel):
+class Conversation(BaseModel):
     start_user = models.ForeignKey(User, related_name='chat_start', on_delete=models.CASCADE, verbose_name=_('user'))
     end_user = models.ForeignKey(User, related_name='chat_end', on_delete=models.CASCADE, verbose_name=_('user'))
     slug = models.SlugField(max_length=150, unique=True, verbose_name=_('slug'), blank=True)
@@ -19,13 +19,13 @@ class ChatRoom(BaseModel):
 
     class Meta:
         db_table = 'ChatRoom'
-        verbose_name = _('Chat room')
-        verbose_name_plural = _('Chat rooms')
+        verbose_name = _('Conversation')
+        verbose_name_plural = _('Conversations')
         unique_together = [('start_user', 'end_user')]
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        self.slug = functions.chat_room_slug(self)
+        self.slug = functions.conversation_slug(self)
         super().save(force_insert=False, force_update=False, using=None, update_fields=None)
 
 
@@ -36,11 +36,11 @@ class Message(BaseModel):
                                  allowed_extensions=['jpg', 'mkv', 'mp4', 'flv', 'avi', 'png', 'jpeg'])])
 
     content = models.CharField(_('content'), max_length=200)
-    chat_room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE,
-                                  verbose_name=_('chat room'), related_name='messages')
+    conversation = models.ForeignKey(Conversation, on_delete=models.CASCADE,
+                                     verbose_name=_('conversation'), related_name='messages')
 
     def __str__(self):
-        return f'{self.user.__str__()} to {self.chat_room.end_user.__str__()}'
+        return f'{self.user.__str__()} to {self.conversation.end_user.__str__()}'
 
     class Meta:
         db_table = 'messages'

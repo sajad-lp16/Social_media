@@ -1,8 +1,8 @@
 from utils.functions import get_format
 
 
-def chat_room_slug(instance):
-    return f'chat-room-{instance.start_user}-{instance.end_user}'
+def conversation_slug(instance):
+    return f'conversation-{instance.start_user}-{instance.end_user}'
 
 
 def rename_file(instance, file_name):
