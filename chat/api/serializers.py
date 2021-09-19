@@ -16,6 +16,7 @@ class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Message
         fields = (
+            'id',
             'user',
             'content',
             'media',
