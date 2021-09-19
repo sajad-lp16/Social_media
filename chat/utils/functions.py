@@ -7,4 +7,4 @@ def conversation_slug(instance):
 
 def rename_file(instance, file_name):
     ext = get_format(file_name)
-    return f'messages/{instance.user}-{instance.chat_room.end_user}/{instance.user}{ext}'
+    return f'messages/{instance.user}-{instance.conversation.end_user}/{instance.user}{ext}'
