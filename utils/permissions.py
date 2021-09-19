@@ -3,7 +3,7 @@ from rest_framework.permissions import BasePermission
 
 class UserVerifiedPermission(BasePermission):
 
-    message = 'You must verify your account so you can send messages!'
+    message = 'You must verify your account first!'
 
     def has_permission(self, request, view):
         return request.user.is_verified

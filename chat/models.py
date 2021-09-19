@@ -37,7 +37,8 @@ class Conversation(BaseModel):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        self.slug = functions.conversation_slug(self)
+        if not self.slug:
+            self.slug = functions.conversation_slug(self)
         super().save(force_insert=False, force_update=False, using=None, update_fields=None)
 
 

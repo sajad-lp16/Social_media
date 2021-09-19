@@ -27,7 +27,8 @@ class Comment(BaseModel):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        self.slug = functions.comment_slug(self)
+        if not self.slug:
+            self.slug = functions.comment_slug(self)
         super().save(force_insert=False, force_update=False, using=None, update_fields=None)
 
 

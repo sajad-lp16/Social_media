@@ -18,6 +18,9 @@ class PostManager(models.Manager):
             followings_posts = followings_posts.union(following.posts.all())
         return followings_posts
 
+    def get_user_posts(self, username):
+        return self.filter(user__username=username)
+
 
 class Post(BaseModel):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts', verbose_name=_('user'))
@@ -36,7 +39,8 @@ class Post(BaseModel):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        self.slug = functions.post_slug(self)
+        if not self.slug:
+            self.slug = functions.post_slug(self)
         super().save(force_insert=False, force_update=False, using=None, update_fields=None)
 
 
