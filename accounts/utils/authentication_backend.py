@@ -5,6 +5,9 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.http import HttpResponse
+
+from rest_framework import status as response_status
+
 from oauth2_provider.models import get_access_token_model
 from oauth2_provider.oauth2_backends import OAuthLibCore
 from oauth2_provider.signals import app_authorized
@@ -79,3 +82,11 @@ def handle_token_creation(obj, request, headers, body, status):
     for k, v in headers.items():
         response[k] = v
     return response
+
+
+def restrict_invalid_request():
+    return HttpResponse(content=json.dumps(
+        {'message': 'request should not have token'}),
+        content_type='application/json',
+        status=response_status.HTTP_400_BAD_REQUEST
+    )

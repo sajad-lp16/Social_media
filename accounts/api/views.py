@@ -14,7 +14,7 @@ from rest_framework.response import Response
 from rest_framework import status as response_status
 
 from . import serializers
-from ..utils.authentication_backend import handle_token_creation
+from ..utils.authentication_backend import handle_token_creation, restrict_invalid_request
 from ..utils.oauth_mixin import CustomOauthMixin
 from ..utils.permissions import AccountOwnerPermission
 from ..utils.verification_backend import generate_code
@@ -36,11 +36,7 @@ class RegisterUser(CustomOauthMixin, View):
     @method_decorator(sensitive_post_parameters("password"))
     def post(self, request, *args, **kwargs):
         if request.GET.get('access_token'):
-            return HttpResponse(content=json.dumps(
-                {'message': 'request should not have token'}),
-                content_type='application/json',
-                status=response_status.HTTP_400_BAD_REQUEST
-            )
+            return restrict_invalid_request()
         data = json.loads(request.body)
         serializer = serializers.UserSerializer(data=data)
         if not serializer.is_valid():
@@ -55,6 +51,8 @@ class LoginUser(CustomOauthMixin, View):
 
     @method_decorator(sensitive_post_parameters("password"))
     def post(self, request, *args, **kwargs):
+        if request.GET.get('access_token'):
+            return restrict_invalid_request()
         data = json.loads(request.body)
         username = data.get('username')
         password = data.get('password')
