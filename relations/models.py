@@ -9,8 +9,8 @@ User = get_user_model()
 
 
 class Relation(BaseModel):
-    start_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='followings', verbose_name=_('user'))
-    end_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='followers', verbose_name=_('user'))
+    start_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='followings', verbose_name=_('start user'))
+    end_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='followers', verbose_name=_('end user'))
 
     class Meta:
         db_table = 'Relations'
