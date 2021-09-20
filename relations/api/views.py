@@ -46,5 +46,5 @@ class UserFollowersDestroyAPIView(generics.DestroyAPIView):
 
     def get_object(self):
         return get_object_or_404(
-            models.Relation, start_user__username=self.request.data.get('username'),end_user=self.request.user
+            models.Relation, start_user__username=self.request.data.get('username'), end_user=self.request.user
         )
