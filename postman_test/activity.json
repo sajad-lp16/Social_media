@@ -1,0 +1,468 @@
+{
+	"info": {
+		"_postman_id": "85e97b88-3825-4739-9e4d-1bc0008374b0",
+		"name": "activity",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post-comments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"post_slug\":\"admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/activity/api/post-comments/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"activity",
+						"api",
+						"post-comments",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "admin",
+        "content": "i loved this",
+        "slug": "admin-comment-66fa78b2-ed8f-4f8b-b0d7-914e45f249d5",
+        "post": {
+            "user": "admin",
+            "caption": "this is a caption",
+            "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+            "media": []
+        },
+        "reply_to": null
+    }
+]]
+		},
+		{
+			"name": "comment-likes",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment_slug\":\"admin-comment-66fa78b2-ed8f-4f8b-b0d7-914e45f249d5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/activity/api/comment-likes/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"activity",
+						"api",
+						"comment-likes",
+						""
+					]
+				}
+			},
+			"response": [{
+    "user": "admin",
+    "comment": {
+        "user": "admin",
+        "content": "i loved this",
+        "slug": "admin-comment-66fa78b2-ed8f-4f8b-b0d7-914e45f249d5",
+        "post": {
+            "user": "admin",
+            "caption": "this is a caption",
+            "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+            "media": []
+        },
+        "reply_to": null
+    }
+}]
+		},
+		{
+			"name": "get-post-likes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"post_slug\":\"admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/activity/api/post-likes/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"activity",
+						"api",
+						"post-likes",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "mehran",
+        "post": {
+            "user": "admin",
+            "caption": "this is a caption",
+            "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+            "media": []
+        }
+    },
+    {
+        "user": "admin",
+        "post": {
+            "user": "admin",
+            "caption": "this is a caption",
+            "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+            "media": []
+        }
+    }
+]]
+		},
+		{
+			"name": "get-message-likes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message_id\":\"0634c292-ba23-4c3a-96ca-8e22d4547ecc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/activity/api/message-likes/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"activity",
+						"api",
+						"message-likes",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "Mehdi",
+        "message": "admin to Mehdi"
+    },
+    {
+        "user": "admin",
+        "message": "admin to Mehdi"
+    }
+]]
+		},
+		{
+			"name": "get-comment-likes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comment_slug\":\"admin-comment-66fa78b2-ed8f-4f8b-b0d7-914e45f249d5\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/activity/api/comment-likes/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"activity",
+						"api",
+						"comment-likes",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "Mehdi",
+        "comment": {
+            "user": "admin",
+            "content": "i loved this",
+            "slug": "admin-comment-66fa78b2-ed8f-4f8b-b0d7-914e45f249d5",
+            "post": {
+                "user": "admin",
+                "caption": "this is a caption",
+                "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+                "media": []
+            },
+            "reply_to": null
+        }
+    },
+    {
+        "user": "admin",
+        "comment": {
+            "user": "admin",
+            "content": "i loved this",
+            "slug": "admin-comment-66fa78b2-ed8f-4f8b-b0d7-914e45f249d5",
+            "post": {
+                "user": "admin",
+                "caption": "this is a caption",
+                "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+                "media": []
+            },
+            "reply_to": null
+        }
+    }
+]]
+		},
+		{
+			"name": "post-likes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"post_slug\":\"admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/activity/api/post-likes/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"activity",
+						"api",
+						"post-likes",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "mehran",
+        "post": {
+            "user": "admin",
+            "caption": "this is a caption",
+            "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+            "media": []
+        }
+    },
+    {
+        "user": "admin",
+        "post": {
+            "user": "admin",
+            "caption": "this is a caption",
+            "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+            "media": []
+        }
+    }
+]]
+		},
+		{
+			"name": "message-likes",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message_id\":\"0634c292-ba23-4c3a-96ca-8e22d4547ecc\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/activity/api/message-likes/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"activity",
+						"api",
+						"message-likes",
+						""
+					]
+				}
+			},
+			"response": [{
+    "user": "admin",
+    "message": "admin to Mehdi"
+}]
+		}
+	]
+}

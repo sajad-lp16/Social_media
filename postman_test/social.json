@@ -1,0 +1,395 @@
+{
+	"info": {
+		"_postman_id": "632facdb-0363-47ba-85e8-83dbe867edcd",
+		"name": "social",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "my-post-list-create",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"caption\":\"This is my Post\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/social/api/my-posts-list-create/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"social",
+						"api",
+						"my-posts-list-create",
+						""
+					]
+				}
+			},
+			"response": [{
+    "user": "admin",
+    "caption": "This is third Post",
+    "slug": "admin-post-efc60210-97ac-43a7-b6fb-b8f72de0ac15",
+    "media": []
+}]
+		},
+		{
+			"name": "followings-post-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"caption\":\"This is my Post\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/social/api/followings-posts/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"social",
+						"api",
+						"followings-posts",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "Mehdi",
+        "caption": "this is a post from mehdi",
+        "slug": "Mehdi-post-e00bb334-23de-4727-b274-fb345090672f",
+        "media": []
+    },
+    {
+        "user": "Mehdi",
+        "caption": "another post from mehdi",
+        "slug": "Mehdi-post-f027d4bd-9b16-4f87-95ea-ead98e9fe880",
+        "media": []
+    }
+]]
+		},
+		{
+			"name": "edit-posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"slug\":\"admin-post-63a07c50-1889-40ea-9ded-67e8d796416d\",\n    \"caption\":\"This is my Post2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/social/api/get-edit-posts/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"social",
+						"api",
+						"get-edit-posts",
+						""
+					]
+				}
+			},
+			"response": [{
+    "user": "admin",
+    "caption": "this is a caption",
+    "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+    "media": []
+}]
+		},
+		{
+			"name": "my-posts-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"caption\":\"This is my Post\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/social/api/my-posts-list-create/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"social",
+						"api",
+						"my-posts-list-create",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "admin",
+        "caption": "this is a caption",
+        "slug": "admin-post-16ad896c-c229-4830-ac3c-ec8f76a3b123",
+        "media": []
+    },
+    {
+        "user": "admin",
+        "caption": "This is my Post",
+        "slug": "admin-post-d7c343ca-756f-4217-a690-f53f5847d495",
+        "media": []
+    },
+    {
+        "user": "admin",
+        "caption": "This is another Post",
+        "slug": "admin-post-70a946dc-14d1-4cd7-94d5-b915d9b93b80",
+        "media": []
+    },
+    {
+        "user": "admin",
+        "caption": "This is third Post",
+        "slug": "admin-post-5155dc80-5368-41f6-b220-acd0c200d5e6",
+        "media": []
+    },
+    {
+        "user": "admin",
+        "caption": "This is third Post",
+        "slug": "admin-post-efc60210-97ac-43a7-b6fb-b8f72de0ac15",
+        "media": []
+    }
+]]
+		},
+		{
+			"name": "add-media",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "slug",
+							"value": "admin-post-f2c4b349-c62f-43c4-a6eb-3fe9bb275b2e",
+							"type": "text"
+						},
+						{
+							"key": "media",
+							"type": "file",
+							"src": "/home/mehdi/Pictures/Screenshot from 2021-09-07 11-45-37.png"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/social/api/add-media/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"social",
+						"api",
+						"add-media",
+						""
+					]
+				}
+			},
+			"response": [{
+    "user": "admin",
+    "post_slug": "admin-post-efc60210-97ac-43a7-b6fb-b8f72de0ac15",
+    "media": "http://127.0.0.1:8000/media/media/admin/admin_k6M1Ayv.png"
+}]
+		},
+		{
+			"name": "user-posts-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"Mehdi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/social/api/user-posts/Mehdi/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"social",
+						"api",
+						"user-posts",
+						"Mehdi",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "user": "Mehdi",
+        "caption": "this is a post from mehdi",
+        "slug": "Mehdi-post-e00bb334-23de-4727-b274-fb345090672f",
+        "media": []
+    },
+    {
+        "user": "Mehdi",
+        "caption": "another post from mehdi",
+        "slug": "Mehdi-post-f027d4bd-9b16-4f87-95ea-ead98e9fe880",
+        "media": []
+    }
+]]
+		}
+	]
+}
