@@ -7,6 +7,7 @@ urlpatterns = [
     path('oauth/', include('oauth2_provider.urls', namespace='oauth2_provider')),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('chat/', include('chat.urls', namespace='chat')),
+    path('relations/', include('relations.urls', namespace='relations')),
     path('social/', include('social.urls', namespace='social')),
     path('admin/', admin.site.urls),
 ]
