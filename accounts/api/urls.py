@@ -6,6 +6,7 @@ app_name = 'accounts_api'
 
 urlpatterns = [
     path('login-user/', views.LoginUser.as_view(), name='login_user'),
+    path('refresh-token/', views.RefreshTokenAPIView.as_view(), name='refresh_token'),
     path('register/', views.RegisterUser.as_view(), name='list_create'),
     path('user-list/', views.UserList.as_view(), name='list'),
 

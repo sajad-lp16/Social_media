@@ -7,6 +7,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.debug import sensitive_post_parameters
+from oauth2_provider.views import TokenView
 
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
@@ -113,3 +114,14 @@ class VerifyAccount(generics.GenericAPIView):
         user.save()
         return Response({'message': 'The Account Has Been Successfully Activated !'},
                         status=response_status.HTTP_200_OK)
+
+
+@method_decorator(csrf_exempt, name="dispatch")
+class RefreshTokenAPIView(CustomOauthMixin, View):
+
+    @method_decorator(sensitive_post_parameters("password"))
+    def post(self, request, *args, **kwargs):
+        data = json.loads(request.body)
+        refresh_token = data.get('refresh_token')
+        url, headers, body, status = self.create_token_response(request, refresh_token=refresh_token)
+        return handle_token_creation(self, request, headers, body, status)

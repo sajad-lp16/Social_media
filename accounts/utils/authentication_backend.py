@@ -44,7 +44,7 @@ class UserOAuthLibCore(OAuthLibCore):
 
     def create_token_response(self, request, refresh_token=None):
 
-        uri, http_method, body, headers = self._extract_params(request, refresh_token=None)
+        uri, http_method, body, headers = self._extract_params(request, refresh_token=refresh_token)
         extra_credentials = self._get_extra_credentials(request)
 
         headers, body, status = self.server.create_token_response(
