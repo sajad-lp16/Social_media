@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "ea19a5c2-3b0d-4da0-9226-01d4b9cb0900",
+		"name": "chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "message-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/chat/api/message-list/conversation-Mehdi-admin/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"api",
+						"message-list",
+						"conversation-Mehdi-admin",
+						""
+					]
+				}
+			},
+			"response": [{
+    "start_user": "Mehdi",
+    "end_user": "admin",
+    "messages": [
+        {
+            "id": "eb11158e-4a1e-4b74-a858-5c3b5f3f7f73",
+            "user": "Mehdi",
+            "content": "چه خبر ادمین جان",
+            "media": null,
+            "conversation": "Mehdi to admin"
+        },
+        {
+            "id": "7bbf4b26-d336-4647-bc5c-09bec7965d0c",
+            "user": "admin",
+            "content": "سلام آقا مهدی خوبید شما",
+            "media": null,
+            "conversation": "admin to Mehdi"
+        },
+        {
+            "id": "c44e80c0-125b-4d6d-9ae5-6ad1814d35e9",
+            "user": "Mehdi",
+            "content": "سلام آقای ادمین خوبی",
+            "media": null,
+            "conversation": "Mehdi to admin"
+        },
+        {
+            "id": "0634c292-ba23-4c3a-96ca-8e22d4547ecc",
+            "user": "admin",
+            "content": "hello my friend",
+            "media": null,
+            "conversation": "admin to Mehdi"
+        }
+    ]
+}]
+		},
+		{
+			"name": "conversation-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/chat/api/conversation-list/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"api",
+						"conversation-list",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "contact": "Mehdi",
+        "slug": "conversation-Mehdi-admin"
+    }
+]]
+		},
+		{
+			"name": "send-message",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\":\"سلام آقا مهدی من رسیدم کجایی داداش\",\n    \"conversation_slug\":\"conversation-Mehdi-admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/chat/api/send-message/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"api",
+						"send-message",
+						""
+					]
+				}
+			},
+			"response": [{
+    "id": "ee76a1a8-2d7a-4094-b76e-200ce0d627b3",
+    "user": "admin",
+    "content": "سلام آقا مهدی من رسیدم کجایی داداش",
+    "media": null,
+    "conversation": "admin to Mehdi"
+}]
+		},
+		{
+			"name": "edit-message",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"1a078ecb-254d-462a-ab1f-61d3d49fdd4b\",\n    \"content\": \"سلام آقا سجاد عززززززیز من رسیدم کجایی داداش\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/chat/api/edit-message/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"api",
+						"edit-message",
+						""
+					]
+				}
+			},
+			"response": [{
+    "id": "ee76a1a8-2d7a-4094-b76e-200ce0d627b3",
+    "user": "admin",
+    "content": "سلام آقا سجاد عززززززیز من رسیدم کجایی داداش",
+    "media": null,
+    "conversation": "admin to Mehdi"
+}]
+		}
+	]
+}

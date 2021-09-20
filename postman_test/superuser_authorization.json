@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "18e32bc7-9e01-458b-99f3-1ac56a460c5e",
+		"name": "user_requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/accounts/api/list-create/",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/api/list-create/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"api",
+						"list-create",
+						""
+					]
+				}
+			},
+			"response": [[
+    {
+        "first_name": "",
+        "last_name": "",
+        "username": "admin",
+        "email": "sajad.tohidi76@gmail.com",
+        "phone_number": 989302658111,
+        "bio": "",
+        "is_active": true,
+        "is_staff": true,
+        "is_private": false,
+        "is_verified": true,
+        "avatar": "http://127.0.0.1:8000/media/profiles/default_profile.png",
+        "token": "s3Qre24HVzwvNEdX75xCHd7hWFpU1p"
+    },
+    {
+        "first_name": "",
+        "last_name": "",
+        "username": "Mahsa",
+        "email": "meh@meh.com",
+        "phone_number": 989302658149,
+        "bio": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_private": false,
+        "is_verified": false,
+        "avatar": "http://127.0.0.1:8000/media/profiles/default_profile.png",
+        "token": "9o1KexPcNk1TuTKztY0kHKLSz9Fuax"
+    },
+    {
+        "first_name": "Mehdi",
+        "last_name": "Tohidi",
+        "username": "Mehdi",
+        "email": "mehdi@mehdi.com",
+        "phone_number": 989302658146,
+        "bio": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_private": false,
+        "is_verified": false,
+        "avatar": "http://127.0.0.1:8000/media/profiles/default_profile.png",
+        "token": "FmufppjYNoD2MhiwvW6dVdFE524Kkx"
+    },
+    {
+        "first_name": "alireza",
+        "last_name": "saeedi",
+        "username": "Alireza",
+        "email": "ali@ali.com",
+        "phone_number": 989302658140,
+        "bio": "",
+        "is_active": true,
+        "is_staff": false,
+        "is_private": false,
+        "is_verified": false,
+        "avatar": "http://127.0.0.1:8000/media/profiles/default_profile.png",
+        "token": "Sup7hVbGLqHNYW5FHjDcjEZMapgvTB"
+    },
+    {
+        "first_name": "Mehran",
+        "last_name": "Asefi",
+        "username": "mehran",
+        "email": "mehran@mehran.com",
+        "phone_number": 989302514789,
+        "bio": "This is a test",
+        "is_active": true,
+        "is_staff": false,
+        "is_private": false,
+        "is_verified": false,
+        "avatar": "http://127.0.0.1:8000/media/profiles/default_profile.png",
+        "token": "mSrISgmYZQIVrAfhkeJLeyxVlqPtG2"
+    }
+]]
+		}
+	]
+}

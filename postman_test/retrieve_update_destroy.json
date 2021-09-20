@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "18e32bc7-9e01-458b-99f3-1ac56a460c5e",
+		"name": "user_requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://127.0.0.1:8000/accounts/api/list-create/",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/api/retrieve-update-destroy/admin/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"api",
+						"retrieve-update-destroy",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": [{
+    "first_name": "Mr Admin",
+    "last_name": "Admini",
+    "username": "admin",
+    "email": "sajad.tohidi76@gmail.com",
+    "phone_number": 989302658111,
+    "bio": "",
+    "is_active": true,
+    "is_staff": true,
+    "is_private": false,
+    "is_verified": true,
+    "avatar": "http://127.0.0.1:8000/media/profiles/default_profile.png",
+    "token": "s3Qre24HVzwvNEdX75xCHd7hWFpU1p"
+}]
+		},
+		{
+			"name": "http://127.0.0.1:8000/accounts/api/retrieve-update-destroy/",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/api/retrieve-update-destroy/admin/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"api",
+						"retrieve-update-destroy",
+						"admin",
+						""
+					]
+				}
+			},
+			"response": [{
+    "first_name": "Mr Admin",
+    "last_name": "Admini",
+    "username": "admin",
+    "email": "sajad.tohidi76@gmail.com",
+    "phone_number": 989302658111,
+    "bio": "",
+    "is_active": true,
+    "is_staff": true,
+    "is_private": false,
+    "is_verified": true,
+    "avatar": "http://127.0.0.1:8000/media/profiles/default_profile.png",
+    "token": "s3Qre24HVzwvNEdX75xCHd7hWFpU1p"
+}]
+		},
+		{
+			"name": "http://127.0.0.1:8000/accounts/api/retrieve-update-destroy/",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "queryParams",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\":\"Mr Admin\",\n    \"last_name\":\"Admini\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/api/retrieve-update-destroy/mahsa/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"api",
+						"retrieve-update-destroy",
+						"mahsa",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
