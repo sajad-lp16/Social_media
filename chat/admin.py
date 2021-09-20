@@ -15,3 +15,4 @@ class ConversationAdmin(admin.ModelAdmin):
 @admin.register(models.Message)
 class MessageAdmin(admin.ModelAdmin):
     list_display = '__str__', 'create_time',
+

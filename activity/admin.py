@@ -16,3 +16,8 @@ class LikeCommentAdmin(admin.ModelAdmin):
 @admin.register(models.LikePost)
 class LikePostAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(models.LikeMessage)
+class LikeMessageAdmin(admin.ModelAdmin):
+    pass
