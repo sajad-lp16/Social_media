@@ -46,43 +46,42 @@ class LikeCommentSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(read_only=True)
     comment = CommentSerializer(read_only=True)
 
+    comment_slug = serializers.SlugField(write_only=True)
+
     class Meta:
         model = models.LikeComment
         fields = (
             'user',
             'comment',
+            'comment_slug'
         )
-
-    def create(self, validated_data):
-        request = self.context['request']
-        self.save(user=request.uer, comment__slug=validated_data.get('comment'))
 
 
 class LikeMessageSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(read_only=True)
-    message = MessageSerializer(read_only=True)
+    message = serializers.StringRelatedField(read_only=True)
+
+    message_id = serializers.CharField(write_only=True)
 
     class Meta:
         model = models.LikeMessage
         fields = (
             'user',
             'message',
+            'message_id',
         )
-
-    def create(self, validated_data):
-        request = self.context['request']
 
 
 class LikePostSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField(read_only=True)
     post = PostSerializer(read_only=True)
 
+    post_slug = serializers.SlugField(write_only=True)
+
     class Meta:
         model = models.LikePost
         fields = (
             'user',
             'post',
+            'post_slug',
         )
-
-    def create(self, validated_data):
-        request = self.context['request']

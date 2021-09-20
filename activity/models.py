@@ -18,7 +18,7 @@ class Comment(BaseModel):
     reply_to = models.ForeignKey('self', on_delete=models.CASCADE, verbose_name=_('reply'), null=True, blank=True)
 
     def __str__(self):
-        return self.user.__str__()
+        return f'{self.user} >>> {self.content[:8]}'
 
     class Meta:
         db_table = 'Comments'
@@ -43,7 +43,7 @@ class LikeComment(Like, BaseModel):
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='likes', verbose_name=_('comment'))
 
     def __str__(self):
-        return self.user.__str__()
+        return f'{self.user}'
 
     class Meta:
         db_table = 'Like_comments'
